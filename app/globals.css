@@ -1,77 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0514;
-  --foreground: #FFD700;
+  --background: #fff8f0;
+  --foreground: #1a1a1a;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto), 'Noto Sans KR', sans-serif;
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
-@keyframes twinkle {
-  from { opacity: 0.05; transform: scale(0.8); }
-  to   { opacity: 0.9;  transform: scale(1.2); }
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes btn-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.7), 0 0 40px rgba(255,165,0,0.4); }
-  50%       { box-shadow: 0 0 40px rgba(255,215,0,1.0), 0 0 80px rgba(255,100,0,0.6); }
-}
-
-@keyframes prize-shine {
-  from { text-shadow: 0 0 15px #FFD700, 0 0 40px #FFA500, 0 0 80px #FF6600; }
-  to   { text-shadow: 0 0 25px #FFE066, 0 0 60px #FFD700, 0 0 120px #FFA500; filter: brightness(1.2); }
-}
-
-@keyframes modal-in {
-  from { transform: scale(0.5) rotate(-5deg); opacity: 0; }
-  to   { transform: scale(1) rotate(0deg); opacity: 1; }
-}
-
-@keyframes confetti-fall {
-  0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 1; }
-  100% { transform: translateY(110vh) rotate(720deg) translateX(var(--drift, 0px)); opacity: 0; }
-}
-
-@keyframes title-glow {
-  0%, 100% { text-shadow: 0 0 8px #FFD700, 0 0 20px #FFA500, 0 0 50px #FF6600; }
-  50%       { text-shadow: 0 0 15px #FFE066, 0 0 40px #FFD700, 0 0 80px #FF8C00; }
-}
-
-.title-glow {
-  animation: title-glow 3s ease-in-out infinite;
-}
-
-.btn-pulse {
-  animation: btn-pulse 2.5s ease-in-out infinite;
-}
-
-.prize-shine {
-  animation: prize-shine 1.5s ease-in-out infinite alternate;
-}
-
-.modal-in {
-  animation: modal-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.star {
-  position: fixed;
-  background: white;
-  border-radius: 50%;
-  animation: twinkle var(--dur, 2s) ease-in-out infinite alternate;
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.confetti-piece {
-  position: fixed;
-  pointer-events: none;
-  z-index: 200;
-  border-radius: 2px;
-  animation: confetti-fall var(--dur, 2s) linear forwards;
+.animate-card-in {
+  animation: card-in 0.35s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
 }

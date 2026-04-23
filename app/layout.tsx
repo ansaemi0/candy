@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Orbitron } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 
-const cinzel = Cinzel_Decorative({
-  weight: ["700", "900"],
-  subsets: ["latin"],
-  variable: "--font-cinzel",
-});
-
-const orbitron = Orbitron({
+const notoSansKr = Noto_Sans_KR({
   weight: ["400", "500", "700", "900"],
   subsets: ["latin"],
-  variable: "--font-orbitron",
+  variable: "--font-noto",
 });
 
 export const metadata: Metadata = {
-  title: "Lucky Roulette - Casino",
-  description: "카지노 스타일 룰렛 게임",
+  title: "오늘의 판교 맛집",
+  description: "매일 새로운 판교 맛집을 추천해드려요",
 };
 
 export default function RootLayout({
@@ -26,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={`${cinzel.variable} ${orbitron.variable}`}>
+      <body className={`${notoSansKr.variable} font-sans`}>
         {children}
       </body>
     </html>
